@@ -18,7 +18,7 @@ try:
         PersonalConversationResource, GroupConversationResource,
         ConversationResource, UserConversationResource
     )
-    from .api.users import UserResource
+    from .api.users import UserResource, SingleUserResource
     from .api.messages import MessageResource, MessagePollResource
 
 except (ModuleNotFoundError, ImportError):
@@ -28,7 +28,7 @@ except (ModuleNotFoundError, ImportError):
         PersonalConversationResource, GroupConversationResource,
         ConversationResource, UserConversationResource
     )
-    from src.app.api.users import UserResource
+    from src.app.api.users import UserResource, SingleUserResource
     from src.app.api.messages import MessageResource, MessagePollResource
 
 
@@ -113,7 +113,7 @@ def create_flask_app(environment=os.environ.get('FLASK_ENV')):
     )
 
     api.add_resource(
-        UserResource,
+        SingleUserResource,
         '/users/<int:user_id>',
         endpoint='get_user_detail'
     )

@@ -51,6 +51,8 @@ class UserResource(Resource):
                        "message": "Server error"
                    }, 500
 
+
+class SingleUserResource(Resource):
     @jwt_required
     def get(self, user_id):
 
