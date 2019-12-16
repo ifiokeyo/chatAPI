@@ -37,7 +37,7 @@ def paginate_query(query, page=DEFAULT_PAGE, per_page=ITEMS_PER_PAGE):
 def validate_convo_participants(*, conversation, participant_id):
     convo_type = conversation.type
 
-    if convo_type == 'Personal' and (conversation.owner != participant_id or
+    if convo_type == 'Personal' and (conversation.owner != participant_id and
                                      conversation.personal_convo_participant != participant_id):
         return False
 

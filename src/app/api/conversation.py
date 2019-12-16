@@ -241,7 +241,7 @@ class UserConversationResource(Resource):
     def get(self, user_id):
         current_user = get_jwt_identity()
 
-        if current_user['id'] != user_id:
+        if int(current_user['id']) != int(user_id):
             return {
                        "status": "fail",
                        "message": "Access denied"

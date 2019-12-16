@@ -82,70 +82,85 @@ def create_flask_app(environment=os.environ.get('FLASK_ENV')):
     api.add_resource(
         LoginResource,
         '/auth/login',
-        endpoint='login')
+        endpoint='login',
+        methods=['POST']
+    )
 
     api.add_resource(
         SignupResource,
         '/auth/signup',
-        endpoint='signup')
+        endpoint='signup',
+        methods=['POST']
+    )
 
     api.add_resource(
         LogoutResource,
         '/logout',
-        endpoint='logout')
+        endpoint='logout',
+        methods=['POST']
+    )
 
     api.add_resource(
         PersonalConversationResource,
         '/conversation/personal',
-        endpoint='create_personal_conversation'
+        endpoint='create_personal_conversation',
+        methods=['POST']
     )
 
     api.add_resource(
         GroupConversationResource,
         '/conversation/group',
-        endpoint='create_group_conversation'
+        endpoint='create_group_conversation',
+        methods=['POST']
     )
 
     api.add_resource(
         UserResource,
         '/users',
-        endpoint='get_all_users'
+        endpoint='get_all_users',
+        methods=['GET']
     )
 
     api.add_resource(
         SingleUserResource,
         '/users/<int:user_id>',
-        endpoint='get_user_detail'
+        endpoint='get_user_detail',
+        methods=['GET']
     )
 
     api.add_resource(
         MessageResource,
         '/conversation/<int:conversation_id>/message/send',
-        endpoint='create_conversation_message'
+        endpoint='create_conversation_message',
+        methods=['POST']
     )
 
     api.add_resource(
         MessageResource,
         '/conversation/<int:conversation_id>/message',
-        endpoint='get_conversation_messages_paginated'
+        endpoint='get_conversation_messages_paginated',
+        methods=['GET']
     )
 
     api.add_resource(
         MessagePollResource,
         '/conversation/<int:conversation_id>/poll/<int:last_msg_id>',
-        endpoint='poll_conversation_messages'
+        endpoint='poll_conversation_messages',
+        methods=['GET']
     )
 
     api.add_resource(
         ConversationResource,
         '/conversation/<int:conversation_id>',
-        endpoint='get_conversation_detail'
+        endpoint='get_conversation_detail',
+        methods=['GET']
     )
 
     api.add_resource(
         UserConversationResource,
         '/conversation/user/<int:user_id>',
-        endpoint='get_all_user_conversations'
+        endpoint='get_all_user_conversations',
+        methods=['GET']
     )
 
     # handle default 500 exceptions with a custom response
