@@ -10,6 +10,9 @@
 ## Development setup
 
  > Clone this repo and navigate into the project's directory
+ 
+ > create an `instance` directory in the root folder. 
+ Copy the config_sample into the instance directory and rename it to `config.py`.
 
 
 #### Start up the server

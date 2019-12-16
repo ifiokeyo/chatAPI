@@ -1,0 +1,8 @@
+from datetime import timedelta
+
+db_file_path = 'sqlite:////{}'.format('src/db/bunq.db')
+
+SQLALCHEMY_DATABASE_URI = db_file_path
+ACCESS_TOKEN_LIFECYCLE = 1
+JWT_SECRET_KEY = 'bunqextraordinaire'
+JWT_ACCESS_TOKEN_EXPIRES = timedelta(days=int(ACCESS_TOKEN_LIFECYCLE))
